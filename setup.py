@@ -13,7 +13,7 @@ setup(
     author_email="esse.woods@gmail.com",
     description="Easing the usage of Makefiles",
     keywords="Makefile MakeMe MM",
-    url="http://packages.python.org/makeme",
+    url="https://github.com/OakNinja/MakeMe",
     install_requires=[
         'questionary',
     ],
