@@ -6,21 +6,21 @@ import questionary
 
 
 def main():
-    makefile = f'{os.getcwd()}/Makefile'
-    if Path(makefile).exists():
-        with open(makefile) as makefile:
+    makefile_path = f'{os.getcwd()}/Makefile'
+    if Path(makefile_path).exists():
+        with open(makefile_path) as makefile:
             makefile_content = makefile.readlines()
 
-        make_targets = []
+        make_targets = set()
         for row in makefile_content:
             if not row.startswith('.') and not row.startswith('.PHONY:'):
                 make_target_match = re.search(r'^(.+?):', row)
                 if make_target_match:
-                    make_targets.append(make_target_match.group(1))
+                    make_targets.add(make_target_match.group(1))
 
         answer = questionary.select(
             "Choose a target",
-            choices=make_targets).ask()  # returns value of selection
+            choices=sorted(make_targets)).ask()  # returns value of selection
         if answer:
             print(f'make {answer}')
             os.system(f'make {answer}')

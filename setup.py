@@ -8,11 +8,10 @@ def read(filename):
 
 setup(
     name="MakeMe",
-    version="0.1.0",
+    version="0.1.1",
     author="Esse Woods",
     author_email="esse.woods@gmail.com",
-    description=("Easing the usage of Makefiles"),
-    license="MIT",
+    description="Easing the usage of Makefiles",
     keywords="Makefile MakeMe MM",
     url="http://packages.python.org/makeme",
     install_requires=[
@@ -21,10 +20,13 @@ setup(
     packages=['makeme', 'tests'],
     long_description=read('README'),
     classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
         "Development Status :: 3 - Alpha",
+        "Operating System :: OS Independent",
         "Topic :: Utilities",
-        "License :: MIT License",
     ],
+    python_requires='>=3.6',
     entry_points={
         'console_scripts': ['mm=makeme.command_line:main'],
     }
