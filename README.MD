@@ -1,7 +1,7 @@
 ## Easing the usage of makefiles
 
 **Requirements:**
-`python>=3.6
+`python>=3.6`
 
 **Install:**
 `pip install makeme`
