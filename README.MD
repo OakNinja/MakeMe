@@ -1,5 +1,5 @@
 ## Easing the usage of makefiles
-
+[![asciicast](https://asciinema.org/a/o16aJEW5odsEtbSdvDDRNkMrm.png)](https://asciinema.org/a/o16aJEW5odsEtbSdvDDRNkMrm?autoplay=1)
 **Requirements:**
 `python>=3.6`
 
