@@ -1,6 +1,6 @@
-#Easing the usage of makefiles
+## Easing the usage of makefiles
 
-Usage:
+*Usage:*
 type 'mm' in a console - if there is a Makefile in the current folder, all targets will be listed and selectable.
 
-type 'mm <keyword>' to filter on targets matching keyword, eg 'mm dev'
+type 'mm keyword' to filter on targets matching keyword, eg 'mm dev'
