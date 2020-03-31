@@ -8,7 +8,7 @@ def read(filename):
 
 setup(
     name="MakeMe",
-    version="0.1.1",
+    version="0.1.3",
     author="Esse Woods",
     author_email="esse.woods@gmail.com",
     description="Easing the usage of Makefiles",
@@ -18,7 +18,7 @@ setup(
         'questionary',
     ],
     packages=['makeme', 'tests'],
-    long_description=read('README'),
+    long_description=read('README.MD'),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
