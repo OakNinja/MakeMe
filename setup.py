@@ -8,17 +8,22 @@ def read(filename):
 
 setup(
     name="MakeMe",
-    version="0.1.4",
+    version="0.1.5",
     author="Esse Woods",
     author_email="esse.woods@gmail.com",
     description="Easing the usage of Makefiles",
+    long_description=read('README.MD'),
     keywords="Makefile MakeMe MM",
     url="https://github.com/OakNinja/MakeMe",
+    project_urls={
+        "Bug Tracker": "https://github.com/OakNinja/makeme/issues",
+        "Documentation": "https://github.com/OakNinja/MakeMe",
+        "Source Code": "https://github.com/OakNinja/MakeMe",
+    },
     install_requires=[
         'questionary',
     ],
     packages=['makeme', 'tests'],
-    long_description=read('README.MD'),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

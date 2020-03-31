@@ -1,6 +1,13 @@
 ## Easing the usage of makefiles
 
-*Usage:*
-type 'mm' in a console - if there is a Makefile in the current folder, all targets will be listed and selectable.
+**Requirements:**
+`python>=3.6
 
-type 'mm keyword' to filter on targets matching keyword, eg 'mm dev'
+**Install:**
+`pip install makeme`
+
+**Usage:**
+type `*mm*` in a terminal window - if there is a Makefile in the current folder, all targets will be listed and selectable.
+
+type `mm *keyword*` to filter on targets matching keyword, eg `mm *dev*`
+``
