@@ -31,10 +31,12 @@ def get_makefile_targets(makefile_rows, keyword=None):
     make_targets = []
     if makefile_rows:
         for row in makefile_rows:
-            keyword_match = True if not keyword else keyword.lower() in row.lower()
             make_target_match = re.search(r'^([a-zA-Z0-9][^$#\/\t=]+?):.*$', row)
-            if keyword_match and make_target_match:
-                make_targets.append(make_target_match.group(1))
+            if make_target_match:
+                make_target = make_target_match.group(1)
+                if keyword and keyword.lower() not in make_target.lower():
+                    continue  # Bail out if keyword is not matching the target
+                make_targets.append(make_target)
     return make_targets
 
 
