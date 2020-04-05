@@ -1,5 +1,5 @@
 ## Easing the usage of makefiles
-[![asciicast](https://asciinema.org/a/o16aJEW5odsEtbSdvDDRNkMrm.png)](https://asciinema.org/a/o16aJEW5odsEtbSdvDDRNkMrm?autoplay=1)
+[![asciicast](https://raw.githubusercontent.com/OakNinja/MakeMe/master/MakeMe/docs/demo.gif)](https://raw.githubusercontent.com/OakNinja/MakeMe/master/MakeMe/docs/demo.gif)
 **Requirements:**
 `python>=3.6`
 
