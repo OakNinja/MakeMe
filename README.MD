@@ -1,5 +1,6 @@
 ## Easing the usage of makefiles
 [![Demo](https://github.com/OakNinja/MakeMe/raw/master/docs/demo.gif)](https://github.com/OakNinja/MakeMe/raw/master/docs/demo.gif)
+
 **Requirements:**
 `python>=3.6`
 
