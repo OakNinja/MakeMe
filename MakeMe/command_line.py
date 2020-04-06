@@ -1,3 +1,5 @@
+import signal
+import subprocess
 import os
 import sys
 import re
@@ -34,10 +36,11 @@ def get_makefile_targets(makefile_rows, keyword=None):
             make_target_match = re.search(make_target_pattern, row)
             if make_target_match:
                 make_target = make_target_match.group(1)
-                match_keyword = keyword.lower() in make_target.lower() if keyword else True
-                if not match_keyword or make_target in make_targets:
+                if keyword and keyword not in make_target.lower() or make_target in make_targets:
                     continue
                 make_targets.append(make_target)
+    if keyword:
+        return sorted(sorted(make_targets, key=str.lower), key=lambda target: 0 if target.lower().startswith(keyword) else 1)
     return make_targets
 
 
@@ -61,20 +64,34 @@ def generate_choices(makefile_targets, keyword):
         return answer
 
 
+def process_makefile(makefile_path, keyword):
+    makefile_rows = get_makefile_rows(makefile_path)
+    makefile_targets = get_makefile_targets(makefile_rows, keyword)
+    if makefile_targets:
+        answer = generate_choices(makefile_targets, keyword)
+        return answer
+
+
+def call_make_target(target):
+    try:
+        subprocess.call(['make', target])
+    except KeyboardInterrupt:
+        pass
+    except subprocess.CalledProcessError as e:
+        print(f'{e.cmd} returned {e.returncode} with error: {e.output}')
+
+
 def main():
     if len(sys.argv) >= 2:
-        keyword = sys.argv[1]
+        keyword = sys.argv[1].lower()
     else:
         keyword = None
     makefile_path = f'{os.getcwd()}/Makefile'
     if Path(makefile_path).exists():
-        makefile_rows = get_makefile_rows(makefile_path)
-        makefile_targets = get_makefile_targets(makefile_rows, keyword)
-        if makefile_targets:
-            answer = generate_choices(makefile_targets, keyword)
-            if answer:
-                print(f'make {answer}')
-                os.system(f'make {answer}')
+        target = process_makefile(makefile_path, keyword)
+        if target:
+            print(f'make {target}')
+            call_make_target(target)
         else:
             print('No matching targets found in Makefile')
     else:
