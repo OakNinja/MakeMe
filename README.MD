@@ -12,4 +12,12 @@ type `mm` in a terminal window - if there is a Makefile in the current folder, a
 
 type `mm <keyword>` to filter on targets matching keyword, eg `mm dev`
 
+***Other options:***
+
+`mm -h` to display the help menu
+
+`mm -l` to list all make targets
+
+`mm -i` to run in interactive mode, after a command is executed, the targets will be listed again until the user quits. 
+
 

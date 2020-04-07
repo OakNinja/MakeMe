@@ -8,7 +8,7 @@ def read(filename):
 
 setup(
     name="MakeMe",
-    version="0.2.1",
+    version="0.2.3",
     author="Esse Woods",
     author_email="esse.woods@gmail.com",
     description="Easing the usage of Makefiles",

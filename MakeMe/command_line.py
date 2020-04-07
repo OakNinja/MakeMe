@@ -1,3 +1,4 @@
+import argparse
 import signal
 import subprocess
 import os
@@ -81,19 +82,39 @@ def call_make_target(target):
         print(f'{e.cmd} returned {e.returncode} with error: {e.output}')
 
 
+def run(keyword, makefile_path, interactive=False):
+    target = process_makefile(makefile_path, keyword)
+    if target:
+        print(f'make {target}')
+        call_make_target(target)
+        if interactive:
+            run(keyword, makefile_path, interactive)
+    else:
+        print('No matching targets found in Makefile')
+
+
 def main():
-    if len(sys.argv) >= 2:
-        keyword = sys.argv[1].lower()
+    parser = argparse.ArgumentParser(prog='mm')
+    parser.add_argument('search', default=None, nargs='?', help='search term, eg. mm <search term>')
+    parser.add_argument('-l', '--list', action='store_true', help='prints all make targets in the terminal')
+    parser.add_argument('-i', '--interactive', action='store_true', help='interactive mode')
+
+    args = parser.parse_args()
+    makefile_path = f'{os.getcwd()}/Makefile'
+
+    if args.search:
+        keyword = args.search.lower()
     else:
         keyword = None
-    makefile_path = f'{os.getcwd()}/Makefile'
+
     if Path(makefile_path).exists():
-        target = process_makefile(makefile_path, keyword)
-        if target:
-            print(f'make {target}')
-            call_make_target(target)
+        if args.list:
+            targets = get_makefile_targets(get_makefile_rows(makefile_path))
+            print('All targets:')
+            for target in targets:
+                print(f'make {target}')
         else:
-            print('No matching targets found in Makefile')
+            run(keyword, makefile_path, args.interactive)
     else:
         print('No Makefile found in current directory')
 
