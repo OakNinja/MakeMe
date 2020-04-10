@@ -97,6 +97,7 @@ def main():
     parser = argparse.ArgumentParser(prog='mm')
     parser.add_argument('search', default=None, nargs='?', help='search term, eg. mm <search term>')
     parser.add_argument('-l', '--list', action='store_true', help='prints all make targets in the terminal')
+    parser.add_argument('-f', '--fish', action='store_true', help='prints all make targets in the terminal and exits')
     parser.add_argument('-i', '--interactive', action='store_true', help='interactive mode')
 
     args = parser.parse_args()
@@ -108,15 +109,22 @@ def main():
         keyword = None
 
     if Path(makefile_path).exists():
-        if args.list:
+        if args.list or args.fish:
             targets = get_makefile_targets(get_makefile_rows(makefile_path))
-            print('All targets:')
-            for target in targets:
-                print(f'make {target}')
+            if args.list:
+                print('All targets:')
+                for target in targets:
+                    print(f'make {target}')
+            else:
+                for target in targets:
+                    print(target)
         else:
             run(keyword, makefile_path, args.interactive)
     else:
-        print('No Makefile found in current directory')
+        if args.fish:
+            print('No Makefile found... Exit')
+        else:
+            print('No Makefile found in current directory')
 
 
 if __name__ == '__main__':
