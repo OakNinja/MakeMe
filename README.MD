@@ -7,10 +7,14 @@
 **Install:**
 `pip install makeme`
 
+**Fish integration:**
+`fisher add OakNinja/MakeMeFish` then run with `mmf`
+
 **Usage:**
 type `mm` in a terminal window - if there is a Makefile in the current folder, all targets will be listed and selectable.
 
 type `mm <keyword>` to filter on targets matching keyword, eg `mm dev`
+
 
 ***Other options:***
 
