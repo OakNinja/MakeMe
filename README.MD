@@ -1,14 +1,15 @@
 ## Easing the usage of makefiles
 [![Demo](https://github.com/OakNinja/MakeMe/raw/master/docs/demo.gif)](https://github.com/OakNinja/MakeMe/raw/master/docs/demo.gif)
 
+**Note: Are you using fish? MakeMe is available as a standalone fish plugin**
+
+See [MakeMeFish](https://github.com/OakNinja/MakeMeFish/)
+
 **Requirements:**
 `python>=3.6`
 
 **Install:**
 `pip install makeme`
-
-**Fish integration:**
-`fisher add OakNinja/MakeMeFish` then run with `mmf`
 
 **Usage:**
 type `mm` in a terminal window - if there is a Makefile in the current folder, all targets will be listed and selectable.
