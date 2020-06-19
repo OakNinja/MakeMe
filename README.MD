@@ -1,3 +1,6 @@
+This plugin is currently outdated - See [MakeMeFish](https://github.com/OakNinja/MakeMeFish/)
+
+
 ## Easing the usage of makefiles
 [![Demo](https://github.com/OakNinja/MakeMe/raw/master/docs/demo.gif)](https://github.com/OakNinja/MakeMe/raw/master/docs/demo.gif)
 
