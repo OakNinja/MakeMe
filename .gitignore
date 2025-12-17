@@ -1,0 +1,18 @@
+# Binaries
+makemego
+mm
+
+# OS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+.ruby-lsp/
+
+# Project specific
+MEMORY.md
+GEMINI.md
+*.test
