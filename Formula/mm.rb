@@ -16,9 +16,9 @@
 
 class Mm < Formula
   desc "Interactively select and run make targets"
-  homepage "https://github.com/YOUR_USERNAME/MakeMeGo" # TODO: Update with your GitHub repository URL
-  url "https://github.com/YOUR_USERNAME/MakeMeGo/archive/refs/tags/v0.1.0.tar.gz" # TODO: Update with the URL of your release archive
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000" # TODO: Update with the SHA256 checksum of your release archive
+  homepage "https://github.com/OakNinja/MakeMe" # TODO: Update with your GitHub repository URL
+  url "https://github.com/OakNinja/MakeMe/archive/refs/tags/v0.1.0.tar.gz" # TODO: Update with the URL of your release archive
+  sha256 "b82d0ebab2b2a78522816ddcca64f9998712f4774a817806232b0ae7340c7851" # TODO: Update with the SHA256 checksum of your release archive
 
   depends_on "go" => :build
   depends_on "fzf"

@@ -12,11 +12,6 @@ MakeMeGo simplifies the usage of Makefiles by providing quick navigation and sea
 - **Preview** - When selecting a target, an excerpt of the target will be shown in the makefile, with match highlighting
 - **Snappy** - Go fast!
 
-## Prerequisities
-
-- [fzf](https://github.com/junegunn/fzf#installation) (Optional, MakeMeGo has internal navigation but fzf is recommended for best experience if using shell functions separately)
-- (Optional) A shell for integration (Bash, Zsh, Fish)
-
 ## Installation
 
 ### Via Script
