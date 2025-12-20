@@ -53,7 +53,7 @@ source ~/.bashrc
 
 ## Usage
 
-Once installed, you can use the `mm` command instead of `mmg`:
+Once installed, you can use the `mm` command:
 
 ```bash
 mm

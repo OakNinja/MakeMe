@@ -38,7 +38,16 @@ if [ -n "$PROFILE_FILE" ]; then
     # If PROFILE_FILE is provided, we need to know the shell type to generate correct function.
     # We'll assume bash if not specified via SHELL_TYPE env var, or try to detect.
     if [ -z "$SHELL_TYPE" ]; then
-        if [ -n "$BASH_VERSION" ]; then
+        PARENT_SHELL=$(ps -o comm= -p $PPID 2>/dev/null || echo "")
+        PARENT_SHELL_NAME=$(basename "$PARENT_SHELL" | sed 's/-//')
+
+        if echo "$PARENT_SHELL_NAME" | grep -q "zsh"; then
+             SHELL_TYPE="zsh"
+        elif echo "$PARENT_SHELL_NAME" | grep -q "bash"; then
+             SHELL_TYPE="bash"
+        elif echo "$SHELL" | grep -q "zsh"; then
+             SHELL_TYPE="zsh"
+        elif [ -n "$BASH_VERSION" ]; then
             SHELL_TYPE="bash"
         elif [ -n "$ZSH_VERSION" ]; then
             SHELL_TYPE="zsh"
@@ -46,6 +55,9 @@ if [ -n "$PROFILE_FILE" ]; then
             SHELL_TYPE="bash" # Default to bash for testing if not detected
         fi
     fi
+elif ps -o comm= -p $PPID 2>/dev/null | grep -q "zsh"; then
+    SHELL_TYPE="zsh"
+    PROFILE_FILE="$HOME/.zshrc"
 elif [ -n "$BASH_VERSION" ]; then
     SHELL_TYPE="bash"
     PROFILE_FILE="$HOME/.bashrc"
@@ -67,8 +79,8 @@ mm() {
   local selected_command
   selected_command=$(command mm --print-command "$@")
   if [ -n "$selected_command" ]; then
-    READLINE_LINE="$selected_command"
-    READLINE_POINT="${#selected_command}"
+    history -s "$selected_command"
+    eval "$selected_command"
   fi
 }
 '''
@@ -79,8 +91,7 @@ mm() {
   local selected_command
   selected_command=$(command mm --print-command "$@")
   if [ -n "$selected_command" ]; then
-    BUFFER="$selected_command"
-    CURSOR=${#BUFFER}
+    print -z "$selected_command"
   fi
 }
 '''
