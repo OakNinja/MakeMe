@@ -5,7 +5,7 @@ BINARY_NAME=mm
 all: build
 
 build:
-	go build -o $(BINARY_NAME) ./cmd/makemego
+	go build -o $(BINARY_NAME) ./cmd/makeme
 
 test:
 	go test ./...

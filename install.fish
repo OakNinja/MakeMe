@@ -4,7 +4,7 @@ function install_mm
     set -q INSTALL_DIR; or set INSTALL_DIR /usr/local/bin
 
     echo "Building mm..."
-    go build -o mm ./cmd/makemego
+    go build -o mm ./cmd/makeme
 
     echo "Installing mm to $INSTALL_DIR..."
     mkdir -p "$INSTALL_DIR"

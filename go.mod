@@ -1,4 +1,4 @@
-module makemego
+module makeme
 
 go 1.25.3
 

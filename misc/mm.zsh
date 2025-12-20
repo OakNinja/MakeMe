@@ -1,4 +1,4 @@
-# MakeMeGo shell integration for Zsh
+# MakeMe shell integration for Zsh
 mm() {
   local selected_command
   selected_command=$(command mm --print-command "$@")

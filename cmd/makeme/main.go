@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"makemego/internal/makemego"
+	"makeme/internal/makeme"
 )
 
 func main() {
@@ -52,12 +52,12 @@ func run(args []string, out io.Writer) error {
 		path = *fileFlag
 	}
 
-	makefile, err := makemego.FindMakefile(path)
+	makefile, err := makeme.FindMakefile(path)
 	if err != nil {
 		return err
 	}
 
-	targets, err := makemego.GetTargets(makefile)
+	targets, err := makeme.GetTargets(makefile)
 	if err != nil {
 		return fmt.Errorf("error getting targets: %w", err)
 	}
@@ -77,7 +77,7 @@ func run(args []string, out io.Writer) error {
 		return nil
 	}
 
-	selectedTarget, err := makemego.RunFzf(targets, query, *interactiveFlag, makefile)
+	selectedTarget, err := makeme.RunFzf(targets, query, *interactiveFlag, makefile)
 	if err != nil {
 		if err.Error() != "exit status 1" {
 			return fmt.Errorf("error running fzf: %w", err)
@@ -95,7 +95,7 @@ func run(args []string, out io.Writer) error {
 			}
 			fmt.Fprint(out, command)
 		} else if !*interactiveFlag {
-			if err := makemego.RunMake(selectedTarget, makefile); err != nil {
+			if err := makeme.RunMake(selectedTarget, makefile); err != nil {
 				return fmt.Errorf("error running make: %w", err)
 			}
 		}

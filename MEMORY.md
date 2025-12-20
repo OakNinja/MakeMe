@@ -1,13 +1,13 @@
 # Session Memory
 
-This file summarizes the development session for the `MakeMeGo` project.
+This file summarizes the development session for the `MakeMe` project.
 
-- **Project Goal:** Convert a fish script (`MakeMeFish`) into a cross-platform Go application (`MakeMeGo`).
+- **Project Goal:** Convert a fish script (`MakeMeFish`) into a cross-platform Go application (`MakeMe`).
 - **Initial Analysis:**
     - The fish script's main purpose is to parse a `Makefile`, present the targets to the user via `fzf`, and then execute the selected target with `make`.
     - Decided to use Go over Rust for its simplicity and speed of development, which is well-suited for this kind of CLI orchestration tool.
 - **Development Process:**
-    - Set up a Go project with `go mod init MakeMeGo`.
+    - Set up a Go project with `go mod init MakeMe`.
     - Created `main.go` with the core application logic.
     - Implemented argument parsing for `-h`, `-f`, and `-i` flags.
     - Implemented Makefile discovery.

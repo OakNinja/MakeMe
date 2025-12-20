@@ -1,4 +1,4 @@
-package makemego
+package makeme
 
 import (
 	"fmt"

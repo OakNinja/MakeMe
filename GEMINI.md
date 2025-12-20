@@ -1,6 +1,6 @@
 # Project Overview
 
-`MakeMeGo` is a command-line tool written in Go that helps you interactively select and run `make` targets from a Makefile. It is a cross-platform replacement for the original `MakeMeFish` script.
+`MakeMe` is a command-line tool written in Go that helps you interactively select and run `make` targets from a Makefile. It is a cross-platform replacement for the original `MakeMeFish` script.
 
 # Building and Running
 
@@ -17,7 +17,7 @@
 
 ## Via Script
 
-To install `MakeMeGo` and the optional shell integration, run the following command:
+To install `MakeMe` and the optional shell integration, run the following command:
 
 ```bash
 ./install.sh
@@ -25,7 +25,7 @@ To install `MakeMeGo` and the optional shell integration, run the following comm
 
 ## Via Homebrew (macOS)
 
-To install `MakeMeGo` with Homebrew, you will first need to publish the formula.
+To install `MakeMe` with Homebrew, you will first need to publish the formula.
 
 1.  **Push to GitHub:** Create a new repository on GitHub and push your project to it.
 2.  **Create a Release:** On the GitHub repository page, create a new release (e.g., `v0.1.0`). This will generate a source code archive (`.tar.gz` file).

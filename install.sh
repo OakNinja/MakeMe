@@ -7,7 +7,7 @@ set -e
 INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
 
 echo "Building mm..."
-go build -o mm ./cmd/makemego
+go build -o mm ./cmd/makeme
 
 echo "Installing mm to $INSTALL_DIR..."
 mkdir -p "$INSTALL_DIR"
@@ -74,7 +74,7 @@ echo "Detected $SHELL_TYPE shell. Will add 'mm' function to $PROFILE_FILE."
 # Create the function string
 if [ "$SHELL_TYPE" = "bash" ]; then
     FUNCTION_STRING='''
-# MakeMeGo shell integration
+# MakeMe shell integration
 mm() {
   local selected_command
   selected_command=$(command mm --print-command "$@")
@@ -86,7 +86,7 @@ mm() {
 '''
 elif [ "$SHELL_TYPE" = "zsh" ]; then
     FUNCTION_STRING='''
-# MakeMeGo shell integration
+# MakeMe shell integration
 mm() {
   local selected_command
   selected_command=$(command mm --print-command "$@")

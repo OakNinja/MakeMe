@@ -1,4 +1,4 @@
-# MakeMeGo shell integration for Bash
+# MakeMe shell integration for Bash
 mm() {
   local selected_command
   selected_command=$(command mm --print-command "$@")
