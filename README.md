@@ -1,3 +1,7 @@
+<img src="docs/logo.png" width="350" title="MakeMe Logo">
+
+[![Demo](docs/mm.gif)](docs/mm.gif)
+
 # MakeMe
 
 > Easing the usage of make and Makefiles.
