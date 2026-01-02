@@ -109,3 +109,7 @@ go test ./...
 # Run installation tests
 ./tests/test_install.sh
 ```
+
+### Learning Resource
+
+If you are looking to use `fzf` as a library in your own Go projects, `MakeMe` is an excellent starting point. The codebase is small, straightforward, and demonstrates how to integrate `fzf` effectively.
