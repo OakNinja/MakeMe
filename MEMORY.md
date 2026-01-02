@@ -30,3 +30,8 @@ This file summarizes the development session for the `MakeMe` project.
     - Created automated test suite (`tests/test_install.sh`) for installation scripts.
     - Updated Homebrew formula to install shell integration files (`misc/mm.bash`, `misc/mm.zsh`, `misc/mm.fish`).
     - Added caveats to Homebrew formula with copy-pasteable commands for shell integration.
+- **Homebrew Tap Migration (2025-12-30):**
+    - Established a dedicated Homebrew tap repository `homebrew-tap`.
+    - Moved the `mm` formula to `homebrew-tap`.
+    - Updated documentation to point users to the new tap installation method.
+    - Updated project license to MIT.

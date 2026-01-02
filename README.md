@@ -14,6 +14,18 @@ MakeMe simplifies the usage of Makefiles by providing quick navigation and searc
 
 ## Installation
 
+### Via Homebrew (macOS and Linux)
+
+```bash
+brew tap OakNinja/tap
+brew install mm
+```
+
+To install the latest development version:
+```bash
+brew install OakNinja/tap/mm --HEAD
+```
+
 ### Automatic Installation
 
 Run the installation script to build the binary and set up shell integration:
@@ -45,13 +57,6 @@ source /path/to/MakeMe/misc/mm.bash
 **Fish (`~/.config/fish/config.fish`):**
 ```fish
 source /path/to/MakeMe/misc/mm.fish
-```
-
-### Via Homebrew (macOS)
-
-```bash
-# Assuming you have the formula available locally
-brew install --build-from-source ./Formula/mm.rb
 ```
 
 ## Usage

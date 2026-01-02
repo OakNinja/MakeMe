@@ -23,22 +23,19 @@ To install `MakeMe` and the optional shell integration, run the following comman
 ./install.sh
 ```
 
-## Via Homebrew (macOS)
+## Via Homebrew (macOS and Linux)
 
-To install `MakeMe` with Homebrew, you will first need to publish the formula.
+To install `MakeMe` via Homebrew, use the custom tap:
 
-1.  **Push to GitHub:** Create a new repository on GitHub and push your project to it.
-2.  **Create a Release:** On the GitHub repository page, create a new release (e.g., `v0.1.0`). This will generate a source code archive (`.tar.gz` file).
-3.  **Update the Formula:**
-    *   Open `Formula/mm.rb`.
-    *   Update the `homepage` with the URL of your GitHub repository.
-    *   Update the `url` with the URL of the `.tar.gz` archive from your release.
-    *   Download the `.tar.gz` archive and calculate its SHA256 checksum. You can do this with the command `shasum -a 256 /path/to/your/archive.tar.gz`.
-    *   Update the `sha256` in the formula with the checksum you calculated.
-4.  **Install Locally:** You can then install your application on your machine with the command:
-    ```
-    brew install --build-from-source ./Formula/mm.rb
-    ```
+```bash
+brew tap OakNinja/tap
+brew install mm
+```
+
+To install the latest development version:
+```bash
+brew install OakNinja/tap/mm --HEAD
+```
 
 
 # Shell Integration
