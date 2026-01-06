@@ -107,45 +107,6 @@ func parseMakefile(filename string) ([]string, error) {
 	return strings.Split(string(parsedOutput), "\n"), nil
 }
 
-func buildFzfCommand(filename string, interactive bool, make_command string, query string) string {
-	var fzf_opts []string
-	fzf_opts = append(fzf_opts, "--read0")
-
-	if query != "" {
-		fzf_opts = append(fzf_opts, fmt.Sprintf("--query=%s", query))
-	}
-
-	if interactive {
-		bind_arg := fmt.Sprintf("--bind=enter:execute:%s {}; echo; echo Done; sleep 1", make_command)
-		fzf_opts = append(fzf_opts, bind_arg)
-	}
-
-	fzf_opts = append(fzf_opts, "--height", "60%")
-	fzf_opts = append(fzf_opts, "--layout=reverse")
-	fzf_opts = append(fzf_opts, "--border")
-	fzf_opts = append(fzf_opts, "--preview-window=right:60%")
-	preview_arg := fmt.Sprintf("--preview='grep --color=always -A 10 -B 1 ^^{}: %s; or echo -GENERATED TARGET-'", filename)
-	fzf_opts = append(fzf_opts, preview_arg)
-
-	fzf_tmux := os.Getenv("FZF_TMUX")
-	if fzf_tmux == "" {
-		fzf_tmux = "0"
-	}
-	fzf_tmux_height := os.Getenv("FZF_TMUX_HEIGHT")
-	if fzf_tmux_height == "" {
-		fzf_tmux_height = "60%"
-	}
-
-	var command string
-	opts_str := strings.Join(fzf_opts, " ")
-	if fzf_tmux == "1" {
-		command = fmt.Sprintf("fzf-tmux -d%s %s", fzf_tmux_height, opts_str)
-	} else {
-		command = fmt.Sprintf("fzf %s", opts_str)
-	}
-	return command
-}
-
 func RunFzf(targets []string, query string, interactive bool, makefile string) (string, error) {
 	inputChan := make(chan string)
 	go func() {
@@ -197,14 +158,6 @@ func RunFzf(targets []string, query string, interactive bool, makefile string) (
 		return "", err
 	}
 
-	// The library doesn't return the selection directly in the same way.
-	// We need to capture the output from the output channel.
-	// Wait, looking at the example again:
-	// outputChan := make(chan string)
-	// go func() { for s := range outputChan { fmt.Println("Got: " + s) } }()
-	// The output channel receives the selected items.
-
-	// So I need to capture it.
 	return selectedTarget, nil
 }
 

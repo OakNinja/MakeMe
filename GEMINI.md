@@ -6,11 +6,11 @@
 
 - **Build:** To build the executable, run the following command:
   ```
-  go build ./cmd/makemego
+  go build ./cmd/makeme
   ```
 - **Run:** To run the application, execute the following command in a directory containing a Makefile:
   ```
-  ./makemego
+  ./makeme
   ```
 
 # Installation
@@ -61,7 +61,7 @@ After you select a target, the `make` command will appear in your prompt.
 # Development Conventions
 
 - **Project Structure:** The project follows the standard Go project structure.
-- **Testing:** Tests are located in the `internal/makemego` directory and can be run with the following command:
+- **Testing:** Tests are located in the `internal/makeme` directory and can be run with the following command:
   ```
   go test ./...
   ```

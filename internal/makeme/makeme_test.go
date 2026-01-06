@@ -108,14 +108,3 @@ func TestParseMakefile(t *testing.T) {
 		t.Errorf("expected target1, got %s", targets[0])
 	}
 }
-
-func TestBuildFzfCommand(t *testing.T) {
-	// This function doesn't use exec, so we can test it directly.
-	cmd := buildFzfCommand("Makefile", true, "make", "build")
-	if !strings.Contains(cmd, "fzf") {
-		t.Errorf("Expected fzf command, got %s", cmd)
-	}
-	if !strings.Contains(cmd, "--query=build") {
-		t.Errorf("Expected query arg, got %s", cmd)
-	}
-}

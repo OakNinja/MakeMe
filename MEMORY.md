@@ -35,3 +35,14 @@ This file summarizes the development session for the `MakeMe` project.
     - Moved the `mm` formula to `homebrew-tap`.
     - Updated documentation to point users to the new tap installation method.
     - Updated project license to MIT.
+- **Release v0.2.0 (2026-01-02):**
+    - **Refactoring:**
+        - Refactored `internal/makeme/makeme.go` to remove unnecessary temporary file creation in `GetTargets`. `GetTargets` now parses the Makefile directly in place.
+    - **Marketing & Documentation:**
+        - Migrated `logo.png` and `mm.gif` from `MakeMeFish` to `MakeMe`'s `docs` folder and README.
+        - Updated `MakeMeFish/README.md` to cross-promote `MakeMe`.
+        - Added a "Learning Resource" section to `MakeMe/README.md` regarding `fzf` as a library.
+        - Created a blog post "Why Makefiles are Great and Why I Wrote MakeMe" in `OakNinja/blog`.
+    - **Release:**
+        - Tagged `v0.2.0`.
+        - Updated Homebrew formula in `OakNinja/homebrew-tap` to `v0.2.0`.
