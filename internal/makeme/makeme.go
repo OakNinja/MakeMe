@@ -45,28 +45,13 @@ func FindMakefile(file string) (string, error) {
 }
 
 func GetTargets(makefile string) ([]string, error) {
-	content, err := os.ReadFile(makefile)
+	contentBytes, err := os.ReadFile(makefile)
 	if err != nil {
 		return nil, err
 	}
-	return GetTargetsFromContent(string(content))
-}
+	content := string(contentBytes)
 
-func GetTargetsFromContent(content string) ([]string, error) {
-	tmpfile, err := os.CreateTemp("", "Makefile.test")
-	if err != nil {
-		return nil, err
-	}
-	defer os.Remove(tmpfile.Name())
-
-	if _, err := tmpfile.WriteString(content); err != nil {
-		return nil, err
-	}
-	if err := tmpfile.Close(); err != nil {
-		return nil, err
-	}
-
-	parsedMakefile, err := parseMakefile(tmpfile.Name())
+	parsedMakefile, err := parseMakefile(makefile)
 	if err != nil {
 		return nil, err
 	}
